@@ -86,6 +86,7 @@
     <Content Include="ReviewSummary.aspx" />
     <Content Include="Global.asax" />
     <Content Include="main.js" />
+    <None Include="Properties\PublishProfiles\Development.pubxml" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
