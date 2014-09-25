@@ -15,6 +15,7 @@ namespace KilnReviews
         public string rev { get; set; }
         public string dt { get; set; }
 		public string sAuthor { get; set; }
+		public int[] ixBugs { get; set; }
 
 	    public DateTime DateTime
 		{

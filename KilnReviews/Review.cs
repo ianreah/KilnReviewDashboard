@@ -1,4 +1,6 @@
-﻿namespace KilnReviews
+﻿using System.Collections.Generic;
+
+namespace KilnReviews
 {
 	public class Review
 	{
@@ -11,5 +13,6 @@
 		public string[] Authors { get; set; }
 		public int DaysOld { get; set; }
         public bool ContainsXamlFiles { get; set; }
+		public int[] RelatedCases { get; set; }
 	}
 }

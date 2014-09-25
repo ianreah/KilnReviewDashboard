@@ -20,6 +20,10 @@ namespace KilnReviews
 			RouteTable.Routes.MapHttpRoute(name: "Waiting",
 										   routeTemplate: "api/Reviews/Waiting",
 										   defaults: new { controller = "Reviews", action = "GetReviewsWaiting" });
+
+			RouteTable.Routes.MapHttpRoute(name: "CasesReady",
+										   routeTemplate: "api/Cases/Ready",
+										   defaults: new { controller = "Cases", action = "GetCasesReady" });
 		}
 
 		protected void Application_BeginRequest(object sender, EventArgs e)

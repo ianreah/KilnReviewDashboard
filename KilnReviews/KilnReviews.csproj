@@ -102,6 +102,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CasesFetcher.cs" />
     <Compile Include="Changeset.cs" />
     <Compile Include="ChangesetWithDiffs.cs" />
     <Compile Include="Default.aspx.cs">
@@ -112,6 +113,8 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Diff.cs" />
+    <Compile Include="CasesController.cs" />
+    <Compile Include="Case.cs" />
     <Compile Include="ReviewsFetcher.cs" />
     <Compile Include="ReviewSummary.aspx.cs">
       <DependentUpon>ReviewSummary.aspx</DependentUpon>

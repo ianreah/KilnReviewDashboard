@@ -14,46 +14,59 @@
 	ReviewWaiting.extend(Spine.Model.Ajax);
 	ReviewWaiting.extend({ url: "api/Reviews/Waiting" });
 
+	var CaseReady = Spine.Model.sub();
+	CaseReady.configure("Case", "sStatus", "sTitle");
+	CaseReady.extend(Spine.Model.Ajax);
+	CaseReady.extend({ url: "api/Cases/Ready" });
+
 	var ReviewsController = Spine.Controller.sub({
 		elements: {
 			"#reviewsTodo": "reviewsTodo",
 			"#reviewsRejected": "reviewsRejected",
-			"#reviewsWaiting": "reviewsWaiting"
+			"#reviewsWaiting": "reviewsWaiting",
+			"#casesReady": "casesReady",
 		},
 
 		init: function () {
 			ReviewTodo.bind("refresh", this.proxy(this.addReviewsTodo));
 			ReviewRejected.bind("refresh", this.proxy(this.addReviewsRejected));
 			ReviewWaiting.bind("refresh", this.proxy(this.addReviewsWaiting));
+			CaseReady.bind("refresh", this.proxy(this.addCasesReady));
 
 			ReviewTodo.fetch();
 			ReviewRejected.fetch();
 			ReviewWaiting.fetch();
+			CaseReady.fetch();
 		},
 
-		template: function (title, items, reviewing) {
-			return $('#reviewsTemplate').tmpl({
+		template: function (title, items, itemTableTemplate, params) {
+			return $('#mainTemplate').tmpl({
 				title: title,
-				reviews: items,
-				reviewing: reviewing
+				itemTableTemplate: itemTableTemplate,
+				items: items,
+				params: params
 			});
 		},
 		
-		refreshList: function(element, title, items, reviewing) {
-		    element.html(this.template(title, items, reviewing));
+		refreshList: function (element, title, items, reviewing, templateId) {
+			element.html(this.template(title, items, reviewing, templateId));
 			element.removeClass("fetching");
 		},
 		
 		addReviewsTodo: function () {
-			this.refreshList($(this.reviewsTodo), "Reviews to do:", ReviewTodo.all(), true);
+			this.refreshList($(this.reviewsTodo), "Reviews to do:", ReviewTodo.all(), 'reviewsTableTemplate', { reviewing: true });
 		},
 
 		addReviewsRejected: function () {
-			this.refreshList($(this.reviewsRejected), "Reviews to fix:", ReviewRejected.all(), false);
+			this.refreshList($(this.reviewsRejected), "Reviews to fix:", ReviewRejected.all(), 'reviewsTableTemplate', { reviewing: false });
 		},
 
 		addReviewsWaiting: function () {
-			this.refreshList($(this.reviewsWaiting), "Your code under review:", ReviewWaiting.all(), false);
+			this.refreshList($(this.reviewsWaiting), "Your code under review:", ReviewWaiting.all(), 'reviewsTableTemplate', { reviewing: false });
+		},
+
+		addCasesReady: function() {
+			this.refreshList($(this.casesReady), "Your cases passed review:", CaseReady.all(), 'casesTableTemplate', {});
 		}
 	});
 	
