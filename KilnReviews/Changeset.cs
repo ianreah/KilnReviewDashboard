@@ -28,7 +28,7 @@ namespace KilnReviews
 
 	    public void FindXamlFiles(WebClient webClient, string kilnUrlBase, HttpCookie token, int ixRepo)
 	    {
-	        var requestString = string.Format("{0}Api/2.0/Repo/{1}/History/{2}?token={3}", kilnUrlBase, ixRepo, rev, token.Value);
+			var requestString = string.Format("{0}Api/2.0/Repo/{1}/History/{2}?token={3}&vcs=2", kilnUrlBase, ixRepo, rev, token.Value);
 	        var rawChangesetsWithDiffs = webClient.DownloadString(requestString);
             var changesetsWithDiffs = JsonConvert.DeserializeObject<ChangesetWithDiffs>(rawChangesetsWithDiffs);
 

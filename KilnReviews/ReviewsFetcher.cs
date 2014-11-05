@@ -75,7 +75,7 @@ namespace KilnReviews
             {
                 using (var webClient = new WebClient())
                 {
-                    var response = webClient.DownloadString(string.Format("{0}Api/2.0/Review/{1}?token={2}", kilnUrlBase, review.sReview, token.Value));
+					var response = webClient.DownloadString(string.Format("{0}Api/2.0/Review/{1}?token={2}&vcs=2", kilnUrlBase, review.sReview, token.Value));
                     var reviewWithChangesets = JsonConvert.DeserializeObject<ReviewWithChangesets>(response);
 
                     if (reviewWithChangesets.changesets == null)    // indicative of a review of changesets from a repo that's since been deleted
