@@ -11,6 +11,10 @@ Conveniently display all of your active [Kiln](https://www.fogcreek.com/kiln/) [
 
 To use it, set `kilnUrlBase` in the web.config to your kiln base url, e.g., https://example.kilnhg.com/, and log in with your FogBugz details.
 
+####Note:
+
+After a recent update to Kiln, this code will work with Harmony repositories and Git-only repositories but **won't work with Mercurial-only repositories**. See [this commit](https://github.com/NonlinearDynamics/KilnReviewDashboard/commit/778dd44ddeee6b73b06008384cf06a131c568f9c) for more information.
+
 ### FogBugz Integration
 
 You can also integrate with FogBugz, which will add a section showing you:
