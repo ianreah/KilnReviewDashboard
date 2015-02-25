@@ -24,7 +24,6 @@
 					<th>Review</th>
 					<th>Days&nbsp;old</th>
 					<th>Who</th>
-					<th>UI?</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -42,13 +41,6 @@
 									<img src="${$value}"/>
 								{{/each}}
 
-							{{/if}}
-						</td>
-						<td>
-							{{if ContainsXamlFiles}}
-							<img src="images/contains-xaml.png" alt="UI"/>
-							{{else}}
-							<img src="images/no-xaml.png" alt=""/>
 							{{/if}}
 						</td>
 					</tr>

@@ -81,8 +81,6 @@
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="Default.aspx" />
-    <Content Include="images\contains-xaml.png" />
-    <Content Include="images\no-xaml.png" />
     <Content Include="ReviewSummary.aspx" />
     <Content Include="Global.asax" />
     <Content Include="main.js" />
@@ -105,7 +103,6 @@
   <ItemGroup>
     <Compile Include="CasesFetcher.cs" />
     <Compile Include="Changeset.cs" />
-    <Compile Include="ChangesetWithDiffs.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -113,7 +110,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Diff.cs" />
     <Compile Include="CasesController.cs" />
     <Compile Include="Case.cs" />
     <Compile Include="ReviewsFetcher.cs" />

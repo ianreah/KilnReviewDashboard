@@ -7,7 +7,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using System.Web.Services.Protocols;
 using Newtonsoft.Json;
 
 namespace KilnReviews
@@ -91,11 +90,6 @@ namespace KilnReviews
 
                         review.Authors = reviewWithChangesets.changesets.Select<Changeset, string>(x => GravitarUrl(GetEmail(x.sAuthor))).Distinct().ToArray();
 
-                        foreach (var changeset in reviewWithChangesets.changesets)
-                        {
-                            changeset.FindXamlFiles(webClient, kilnUrlBase, token, review.ixRepos[0]);
-                        }
-                        review.ContainsXamlFiles = reviewWithChangesets.changesets.Any(c => c.ContainsXamlFiles);
 	                    review.RelatedCases = reviewWithChangesets.changesets.SelectMany(changeset => changeset.ixBugs).Distinct().ToArray();
                     }
                 }	
